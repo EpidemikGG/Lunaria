@@ -30,7 +30,7 @@ function scoreKeyword(question, keyword) {
 
   const avgVolume = question.answers.reduce((s, a) => s + a[1], 0) / question.answers.length;
   const ratio = hit[1] / avgVolume;
-  const tier = TIERS.find(t => ratio < t.mult) < 0 ? null : TIERS.find(t => ratio < t.mult) || TIERS[TIERS.length - 1];
+  const tier = TIERS.find(t => ratio < t.mult) || TIERS[TIERS.length - 1];
   return {
     keyword: norm,
     volume: hit[1],
@@ -46,7 +46,8 @@ function altitudeFor(points) {
 
 function nextQuestion() {
   if (state.answered.length >= QUESTIONS.length) state.answered = [];
-  while (state.answered.includes(idx = Math.floor(Math.random() * QUESTIONS.length))) {}
+  let idx;
+  do { idx = Math.floor(Math.random() * QUESTIONS.length); } while (state.answered.includes(idx));
   state.answered.push(idx);
   state.question = QUESTIONS[idx];
   return state.question;
@@ -58,7 +59,7 @@ function submitAnswer(raw) {
   if (result) {
     state.history.push({
       q: state.question.q,
-      keyword: result.tier.name,
+      keyword: result.keyword,
       tier: result.tier.name,
       points: result.tier.points,
       volume: result.volume,
