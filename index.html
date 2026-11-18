@@ -13,7 +13,7 @@
   <section id="screen-start" class="screen">
     <div class="sky">
       <div class="star s1"></div><div class="star s2"></div><div class="star s3"></div>
-      <div class="star s4"></div><div star class="star s5"></div><div class="star s6"></div>
+      <div class="star s4"></div><div class="star s5"></div><div class="star s6"></div>
     </div>
     <div class="moon-bg"></div>
     <h1 class="logo">🌙 Lunaria</h1>
@@ -30,29 +30,28 @@
   <!-- GAME SCREEN -->
   <section id="screen-game" class="screen hidden">
     <div class="hud">
-      <span id="hud-round">Round 1/10</text></span>
+      <span id="hud-round">Round 1/10</span>
       <span id="hud-altitude">40,000 km</span>
       <span id="hud-points">0 pts</span>
     </div>
     <div id="track-wrap">
-      <div id="track-earth"></div>
+      <div id="track-earth">🌍</div>
       <div id="track">
+        <div id="progress-line"><div id="progress-fill"></div></div>
         <div id="ship">🚀</div>
         <div id="moon-icon">🌕</div>
-  <!--       <div id="moon-icon">🌝</div> -->
-        <div id="progress-line"><div id="progress-fill"></div %></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" id="question-card">
       <div id="question-text">Loading…</div>
       <input id="answer-input" autocomplete="off" maxlength="40" placeholder="one or two words…">
       <button id="btn-submit" class="btn">Ascend ⬆</button>
     </div>
-    <div id="reveal" class="hidden">
+    <div id="reveal" class="card hidden">
       <div id="tier-badge"></div>
       <div id="tier-info"></div>
       <button id="btn-next" class="btn">Next ▸</button>
-    div>
+    </div>
   </section>
 
   <!-- RESULTS SCREEN -->
@@ -68,5 +67,5 @@
 <script src="js/data.js"></script>
 <script src="js/game.js"></script>
 <script src="js/ui.js"></script>
-</footer></body>
+</body>
 </html>
